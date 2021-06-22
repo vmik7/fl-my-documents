@@ -186,9 +186,16 @@ async function importFonts() {
     }
 }
 
+// Converts and imports fonts
 async function prepareFonts() {
     await convertFonts();
     await importFonts();
+}
+
+// * Favicon
+
+function favicon() {
+    return src(routes.src.favicon).pipe(dest(routes.build.favicon));
 }
 
 // Monitors source failes to be changed
@@ -205,7 +212,10 @@ function clean() {
     return del(routes.buildFolderName);
 }
 
-const buildFunction = series(clean, parallel(js, css, html, images, fonts));
+const buildFunction = series(
+    clean,
+    parallel(favicon, js, css, html, images, fonts),
+);
 const watchFunction = parallel(buildFunction, watchFiles, browserSyncConfig);
 
 exports.build = buildFunction;
@@ -218,3 +228,4 @@ exports.js = js;
 exports.images = images;
 exports.fonts = fonts;
 exports.prepareFonts = prepareFonts;
+exports.favicon = favicon;

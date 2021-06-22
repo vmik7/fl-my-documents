@@ -7,6 +7,7 @@ const src = {
     js: `${srcFolderName}/js/main.js`,
     images: `${srcFolderName}/img/**/*.{jpg,png,svg,gif,ico,webp}`,
     fonts: `${srcFolderName}/fonts/converted/*.{woff,woff2}`,
+    favicon: `${srcFolderName}/favicon.ico`,
 };
 const build = {
     html: `${buildFolderName}/`,
@@ -14,6 +15,7 @@ const build = {
     js: `${buildFolderName}/js/`,
     images: `${buildFolderName}/img/`,
     fonts: `${buildFolderName}/fonts/`,
+    favicon: `${buildFolderName}/`,
 };
 const watch = {
     html: `${srcFolderName}/**/*.html`,

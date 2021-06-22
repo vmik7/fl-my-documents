@@ -11,8 +11,8 @@ module.exports = {
         sourceType: 'module',
     },
     rules: {
-        'no-restricted-syntax': 'warn',
-        'no-await-in-loop': 'warn',
+        'no-restricted-syntax': 'off',
+        'no-await-in-loop': 'off',
 
         // Предупреждение no-unused-vars вместо ошибки
         'no-unused-vars': 'warn',
