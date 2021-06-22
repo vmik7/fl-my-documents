@@ -1,0 +1,40 @@
+.top-bar {
+    color: #fff;
+    font-size: 14px;
+    line-height: 21px;
+    background: $cBrown;
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 60px;
+    }
+
+    &__title {
+    }
+
+    &__link {
+        text-decoration: underline;
+    }
+
+    &__status {
+        display: flex;
+        align-items: center;
+        // text-decoration: underline;
+
+        &::before {
+            display: block;
+            width: 7px;
+            height: 7px;
+            margin-right: 16px;
+            background: #18c433;
+            border-radius: 50%;
+            content: '';
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

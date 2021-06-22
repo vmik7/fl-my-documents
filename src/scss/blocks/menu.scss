@@ -1,0 +1,60 @@
+.menu {
+    &__body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__list {
+        display: flex;
+        flex-shrink: 1;
+        align-items: center;
+        width: 100%;
+        column-gap: 30px;
+
+        &_hidden {
+            animation: on-search 0.7s forwards;
+        }
+    }
+
+    &__item {
+        flex-shrink: 0;
+    }
+
+    &__link {
+        display: block;
+        padding: 0 20px;
+        color: $cBlueGrey;
+        font-size: 16px;
+        line-height: 40px;
+        border-radius: 3px;
+        transition: background 0.3s ease;
+    }
+
+    &__item_active &__link {
+        background: $cGrey;
+    }
+    &:not(.menu__item_active) &__link:hover {
+        background: $cGrey;
+    }
+
+    &__search {
+        flex: 1 0 190px;
+        padding-left: 20px;
+    }
+}
+
+@keyframes on-search {
+    from {
+        width: 100%;
+        opacity: 1;
+    }
+    30% {
+        width: 100%;
+        opacity: 0;
+    }
+    to {
+        width: 0;
+        opacity: 0;
+    }
+}

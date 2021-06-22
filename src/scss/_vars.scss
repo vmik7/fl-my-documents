@@ -1,0 +1,16 @@
+// Colors
+$cBrown: #562212;
+$cDarkBrown: #381207;
+$cLightBrown: #c59368;
+$cGrey: #f4f7fd;
+$cBlueGrey: #7a8ea9;
+
+// Layout
+$mobileContainerPadding: 18;
+$maxContainerWidth: 1222 + 2 * $mobileContainerPadding;
+
+// Media breakpoints
+$md1: $maxContainerWidth;
+$md2: 991;
+$md3: 767;
+$md4: 480;

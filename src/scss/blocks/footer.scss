@@ -1,0 +1,26 @@
+.footer {
+    background: #fff;
+
+    &__container {
+        display: flex;
+        align-items: center;
+        min-height: 215px;
+    }
+    &__list {
+    }
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: 3px;
+        }
+
+        color: $cBlueGrey;
+        font-size: 17px;
+        line-height: 23px;
+    }
+
+    &__link {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

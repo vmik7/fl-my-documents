@@ -227,5 +227,7 @@ exports.css = css;
 exports.js = js;
 exports.images = images;
 exports.fonts = fonts;
+exports.convertFonts = convertFonts;
+exports.importFonts = importFonts;
 exports.prepareFonts = prepareFonts;
 exports.favicon = favicon;

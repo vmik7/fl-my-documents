@@ -1,0 +1,68 @@
+// @include font('Geometria', 'Geometria-Heavy', '900', 'normal');
+// @include font('Geometria', 'Geometria-HeavyItalic', '900', 'italic');
+
+// @include font('Geometria', 'Geometria-ExtraBold', '800', 'normal');
+// @include font('Geometria', 'Geometria-ExtraBoldItalic', '800', 'italic');
+
+// @include font('Geometria', 'Geometria-Bold', '700', 'normal');
+// @include font('Geometria', 'Geometria-BoldItalic', '700', 'italic');
+
+@include font('Geometria', 'Geometria-Medium', '500', 'normal');
+// @include font('Geometria', 'Geometria-MediumItalic', '500', 'italic');
+
+@include font('Geometria', 'Geometria', '400', 'normal');
+// @include font('Geometria', 'Geometria-Italic', '400', 'italic');
+
+// @include font('Geometria', 'Geometria-Light', '300', 'normal');
+// @include font('Geometria', 'Geometria-LightItalic', '300', 'italic');
+
+// @include font('Geometria', 'Geometria-ExtraLight', '200', 'normal');
+// @include font('Geometria', 'Geometria-ExtraLightItalic', '200', 'italic');
+
+// @include font('Geometria', 'Geometria-Thin', '100', 'normal');
+// @include font('Geometria', 'Geometria-ThinItalic', '100', 'italic');
+
+@include font('icons', 'icons', '400', 'normal');
+
+// @font-face {
+//     font-weight: normal;
+//     font-family: 'icons';
+//     font-style: normal;
+//     src: url('fonts/icons.eot?wq589u');
+//     src: url('fonts/icons.eot?wq589u#iefix') format('embedded-opentype'),
+//         url('fonts/icons.ttf?wq589u') format('truetype'),
+//         url('fonts/icons.woff?wq589u') format('woff'),
+//         url('fonts/icons.svg?wq589u#icons') format('svg');
+//     font-display: block;
+// }
+
+.icon {
+    font-weight: normal;
+
+    /* stylelint-disable */
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icons' !important;
+    /* stylelint-enable */
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-transform: none;
+    speak: never;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-down::before {
+    content: '\e900';
+}
+.icon-arrow-left::before {
+    content: '\e901';
+}
+.icon-arrow-right::before {
+    content: '\e902';
+}
+.icon-search::before {
+    content: '\e903';
+}

@@ -1,0 +1,26 @@
+.header {
+    &__top-bar {
+    }
+
+    &__main {
+    }
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 158px;
+    }
+
+    &__logo {
+        max-width: 188px;
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__menu {
+        flex: 1;
+        padding-left: 90px;
+    }
+}

@@ -59,8 +59,7 @@
   },
   "lint-staged": {
     "*.js": "eslint --fix",
-    "*.{css,scss}": "stylelint --fix",
+    "*.{css,scss}": "stylelint src/**/*.scss --fix",
     "*.{js,css,md}": "prettier --write"
-  },
-  "dependencies": {}
+  }
 }
