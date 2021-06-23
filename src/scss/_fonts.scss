@@ -22,27 +22,25 @@
 // @include font('Geometria', 'Geometria-Thin', '100', 'normal');
 // @include font('Geometria', 'Geometria-ThinItalic', '100', 'italic');
 
-@include font('icons', 'icons', '400', 'normal');
+@font-face {
+    font-weight: normal;
+    font-family: 'Icons';
+    font-style: normal;
+    font-display: block;
+    src: url('../fonts/Icons.woff') format('woff'),
+        url('../fonts/Icons.woff2') format('woff2');
+}
 
-// @font-face {
-//     font-weight: normal;
-//     font-family: 'icons';
-//     font-style: normal;
-//     src: url('fonts/icons.eot?wq589u');
-//     src: url('fonts/icons.eot?wq589u#iefix') format('embedded-opentype'),
-//         url('fonts/icons.ttf?wq589u') format('truetype'),
-//         url('fonts/icons.woff?wq589u') format('woff'),
-//         url('fonts/icons.svg?wq589u#icons') format('svg');
-//     font-display: block;
-// }
-
-.icon {
+[class^='icon-']::before,
+[class*=' icon-']::before {
     font-weight: normal;
 
-    /* stylelint-disable */
     /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'icons' !important;
+
+    /* stylelint-disable */
+    font-family: 'Icons' !important;
     /* stylelint-enable */
+
     font-style: normal;
     font-variant: normal;
     line-height: 1;
@@ -54,6 +52,12 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-menu::before {
+    content: '\e904';
+}
+.icon-cross::before {
+    content: '\e905';
+}
 .icon-arrow-down::before {
     content: '\e900';
 }

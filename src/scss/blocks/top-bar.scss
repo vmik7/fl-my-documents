@@ -4,11 +4,23 @@
     line-height: 21px;
     background: $cBrown;
 
+    @include responsive-value('font-size', 14, 12, $md1);
+    @include responsive-value('line-height', 21, 18, $md1);
+
     &__container {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        min-height: 60px;
+        min-height: 50px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        column-gap: 20px;
+
+        @media screen and (max-width: $md4 + px) {
+            flex-direction: column;
+            align-items: flex-start;
+            row-gap: 5px;
+        }
     }
 
     &__title {
@@ -20,17 +32,23 @@
 
     &__status {
         display: flex;
+        flex-shrink: 0;
         align-items: center;
-        // text-decoration: underline;
+
+        @media screen and (max-width: $md4 + px) {
+            align-self: flex-end;
+        }
 
         &::before {
             display: block;
+            flex-shrink: 0;
             width: 7px;
             height: 7px;
             margin-right: 16px;
             background: #18c433;
             border-radius: 50%;
             content: '';
+            @include responsive-value('margin-right', 16, 5, $md1);
         }
 
         &:hover {

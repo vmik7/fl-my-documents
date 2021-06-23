@@ -36,3 +36,14 @@
 @mixin no-focus-outline() {
     outline: 0;
 }
+
+// Mixin for responsive propetry-values
+
+@mixin responsive-value($prop, $init, $finally, $md) {
+    @media screen and (max-width: $md + px) {
+        #{$prop}: calc(
+            #{$finally}px + (#{$init} - #{$finally}) *
+                ((100vw - 320px) / (#{$md} - 320))
+        );
+    }
+}

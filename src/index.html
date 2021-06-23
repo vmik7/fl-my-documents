@@ -17,7 +17,7 @@
         <header class="page__header header">
             <div class="header__top-bar top-bar">
                 <div class="top-bar__container _container">
-                    <h1 class="top-bar__title">Центр государтсвенных и муниципальных услуг «МОИ ДОКУМЕНТЫ» в <a href="https://yandex.ru/maps/-/CCUeYTV8SC" target="_blank" class="top-bar__link _link">г. о. Лобня</a></h1>
+                    <h1 class="top-bar__title">Центр государтсвенных и муниципальных услуг «МОИ ДОКУМЕНТЫ» в&nbsp;<a href="https://yandex.ru/maps/-/CCUeYTV8SC" target="_blank" class="top-bar__link _link">г.&nbsp;о.&nbsp;Лобня</a></h1>
                     <a href="#" class="top-bar__status _link">Узнать статус обращения</a>
                 </div>
             </div>
@@ -28,18 +28,23 @@
                     </div>
                     <nav class="header__menu menu">
                         <div class="menu__body">
-                            <ul class="menu__list">
-                                <li class="menu__item menu__item_active"><a href="#" class="menu__link _link">Главная</a></li>
-                                <li class="menu__item"><a href="#" class="menu__link _link">Об МФЦ</a></li>
-                                <li class="menu__item"><a href="#" class="menu__link _link">Физ. лицам</a></li>
-                                <li class="menu__item"><a href="#" class="menu__link _link">Юр. лицам</a></li>
-                                <li class="menu__item"><a href="#" class="menu__link _link">Контакты</a></li>
-                            </ul>
-                            <form action="#" class="menu__search search">
-                                <input type="text" class="search__input" required placeholder="Поиск...">
-                                <button type="submit" class="search__button icon icon-search"></button>
-                            </form>
+                            <div class="menu__wrapper">
+                                <button class="menu__close icon-cross"></button>
+                                <ul class="menu__list">
+                                    <li class="menu__item menu__item_active"><a href="#" class="menu__link _link">Главная</a></li>
+                                    <li class="menu__item"><a href="#" class="menu__link _link">Об МФЦ</a></li>
+                                    <li class="menu__item"><a href="#" class="menu__link _link">Физ. лицам</a></li>
+                                    <li class="menu__item"><a href="#" class="menu__link _link">Юр. лицам</a></li>
+                                    <li class="menu__item"><a href="#" class="menu__link _link">Контакты</a></li>
+                                </ul>
+                            </div>
                         </div>
+                        <form action="#" method="GET" class="menu__search search">
+                            <input type="text" class="search__input" required placeholder="Поиск...">
+                            <button type="submit" class="search__button icon-search"></button>
+                        </form>
+                        <button class="menu__show-search icon-search"></button>
+                        <button class="menu__burger icon-menu"></button>
                     </nav>
                 </div>
             </div>

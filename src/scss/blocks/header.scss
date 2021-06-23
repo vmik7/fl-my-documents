@@ -1,4 +1,7 @@
 .header {
+    position: relative;
+    background: #fff;
+
     &__top-bar {
     }
 
@@ -9,18 +12,25 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        min-height: 158px;
+        min-height: 148px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        @include responsive-value('min-height', 120, 70, $md2);
     }
 
     &__logo {
+        flex-shrink: 0;
         max-width: 188px;
         img {
             max-width: 100%;
         }
+
+        @include responsive-value('max-width', 188, 100, $md1);
     }
 
     &__menu {
         flex: 1;
         padding-left: 90px;
+        @include responsive-value('padding-left', 60, 00, $md1);
     }
 }

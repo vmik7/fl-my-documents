@@ -1,24 +1,121 @@
 .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media screen and (max-width: $md2 + px) {
+        justify-content: flex-end;
+    }
+
     &__body {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        flex-grow: 0;
+        flex-shrink: 1;
+
+        @media screen and (max-width: $md1 + px) {
+            flex-grow: 1;
+        }
+        @media screen and (max-width: $md2 + px) {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            background: rgba(255, 255, 255, 0.7);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            content: '';
+        }
+    }
+
+    &_expanded &__body {
+        z-index: 0;
+        opacity: 1;
+    }
+
+    &__wrapper {
+        @media screen and (max-width: $md2 + px) {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            bottom: 0;
+            width: 100%;
+            max-width: 278px;
+            padding-top: 50px;
+            background: #fff;
+            border-left: 2px solid #f5f5f5;
+            transition: right 0.4s ease;
+        }
+    }
+
+    &__close {
+        @media screen and (min-width: $md2 + 1 + px) {
+            display: none;
+        }
+        @media screen and (max-width: $md2 + px) {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        color: #c9d8eb;
+        font-size: 20px;
+        background: none;
+        border: none;
+
+        @include responsive-value('font-size', 25, 20, $md2);
+    }
+
+    &_expanded &__wrapper {
+        @media screen and (max-width: $md2 + px) {
+            right: 0;
+        }
     }
 
     &__list {
-        display: flex;
-        flex-shrink: 1;
-        align-items: center;
-        width: 100%;
-        column-gap: 30px;
+        @media screen and (min-width: $md2 + 1 + px) {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            column-gap: 30px;
+            row-gap: 15px;
 
-        &_hidden {
-            animation: on-search 0.7s forwards;
+            @include responsive-value('column-gap', 30, 0, $md1);
+        }
+        @media screen and (max-width: $md2 + px) {
+        }
+    }
+
+    &::before {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        background: rgba(255, 255, 255, 0.7);
+        visibility: hidden;
+        opacity: 0;
+        content: '';
+    }
+    &_state_search::before {
+        z-index: 0;
+        visibility: visible;
+        animation: show-backstage 0.7s forwards;
+    }
+
+    &_state_search &__body {
+        @media screen and (min-width: $md1 + 1 + px) {
+            animation: hide-menu 0.7s forwards;
         }
     }
 
     &__item {
         flex-shrink: 0;
+        @media screen and (max-width: $md2 + px) {
+            &:not(:last-child) {
+                border-bottom: 2px solid #f5f5f5;
+            }
+        }
     }
 
     &__link {
@@ -29,32 +126,114 @@
         line-height: 40px;
         border-radius: 3px;
         transition: background 0.3s ease;
+
+        @media screen and (max-width: $md1 + px) {
+            font-size: 15px;
+        }
+        @media screen and (max-width: $md2 + px) {
+            padding-left: 27px;
+            line-height: 65px;
+        }
     }
 
-    &__item_active &__link {
-        background: $cGrey;
-    }
-    &:not(.menu__item_active) &__link:hover {
-        background: $cGrey;
+    @media screen and (min-width: $md2 + 1 + px) {
+        &__item_active &__link {
+            background: $cGrey;
+        }
+        &:not(.menu__item_active) &__link:hover {
+            background: $cGrey;
+        }
     }
 
     &__search {
-        flex: 1 0 190px;
-        padding-left: 20px;
+        @media screen and (min-width: $md1 + 1 + px) {
+            flex: 1 0 190px;
+            padding-left: 20px;
+        }
+        @media screen and (max-width: $md1 + px) {
+            position: absolute;
+            right: $mobileContainerPadding + px;
+            bottom: 0;
+            left: $mobileContainerPadding + px;
+            z-index: -1;
+            background: #fff;
+            transform: translate(0, 0);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+    }
+
+    &_state_search &__search {
+        @media screen and (max-width: $md1 + px) {
+            z-index: 0;
+            transform: translate(0, 100%);
+            opacity: 1;
+        }
+    }
+
+    &__show-search {
+        @media screen and (min-width: $md1 + 1 + px) {
+            display: none;
+        }
+
+        height: 50px;
+        padding-right: 18px;
+        padding-left: 18px;
+        color: #c9d8eb;
+        font-size: 20px;
+        background: none;
+        border: none;
+        transition: opacity 0.3s ease;
+
+        @include responsive-value('font-size', 25, 20, $md2);
+        @include responsive-value('height', 50, 35, $md2);
+        @include responsive-value('padding-left', 18, 10, $md2);
+        @include responsive-value('padding-right', 18, 10, $md2);
+    }
+
+    &_state_search &__show-search {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &__burger {
+        @media screen and (min-width: $md2 + 1 + px) {
+            display: none;
+        }
+
+        height: 50px;
+        padding: 0 18px;
+        color: #c9d8eb;
+        font-size: 20px;
+        background: none;
+        border: none;
+
+        @include responsive-value('font-size', 25, 20, $md2);
+        @include responsive-value('height', 50, 35, $md2);
+        @include responsive-value('padding-left', 18, 10, $md2);
+        @include responsive-value('padding-right', 18, 10, $md2);
     }
 }
 
-@keyframes on-search {
+@keyframes hide-menu {
     from {
-        width: 100%;
         opacity: 1;
     }
     30% {
-        width: 100%;
+        position: absolute;
         opacity: 0;
     }
     to {
-        width: 0;
+        position: absolute;
         opacity: 0;
+    }
+}
+
+@keyframes show-backstage {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
