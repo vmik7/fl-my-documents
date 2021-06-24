@@ -11,13 +11,15 @@ const menuCloseButton = document.querySelector('.menu__close');
 const menuBody = document.querySelector('.menu__body');
 const searchInput = document.querySelector('.search__input');
 const searchShowButton = document.querySelector('.menu__show-search');
-const heroSlider = document.querySelector('.hero-slider');
+const heroSliderBody = document.querySelector('.hero-slider__body');
 
 searchInput.addEventListener('focus', () => {
     menu.classList.toggle('menu_state_search', true);
+    page.classList.toggle('page_locked', true);
 });
 searchInput.addEventListener('blur', () => {
     menu.classList.toggle('menu_state_search', false);
+    page.classList.toggle('page_locked', false);
 });
 searchShowButton.addEventListener('click', () => {
     searchInput.focus();
@@ -38,10 +40,16 @@ menuBody.addEventListener('click', (e) => {
     }
 });
 
-if (heroSlider) {
+if (heroSliderBody) {
     /* eslint-disable-next-line no-undef */
-    const swiper = new Swiper(heroSlider, {
-        speed: 400,
-        spaceBetween: 100,
+    const swiper = new Swiper(heroSliderBody, {
+        // speed: 400,
+        // spaceBetween: 100,
+        // loop: true,
+        effect: 'fade',
+        navigation: {
+            nextEl: '.hero-slider__next',
+            prevEl: '.hero-slider__prev',
+        },
     });
 }

@@ -34,6 +34,29 @@ body {
     text-decoration: none;
 }
 
+._button {
+    display: inline-block;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 50px;
+    text-decoration: none;
+    background: $cBrown;
+    border: none;
+    transition: all 0.3s ease;
+
+    &:not([disabled]) {
+        &:hover {
+            background: $cDarkBrown;
+            cursor: pointer;
+        }
+    }
+
+    &[disabled] {
+        background: $cDarkBrown;
+    }
+}
+
 @import 'blocks/page';
 @import 'blocks/header';
 @import 'blocks/top-bar';

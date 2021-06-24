@@ -1,7 +1,9 @@
 .menu {
+    z-index: 50;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     @media screen and (max-width: $md2 + px) {
         justify-content: flex-end;
     }
@@ -21,6 +23,7 @@
             left: 0;
             z-index: -1;
             background: rgba(255, 255, 255, 0.7);
+            visibility: hidden;
             opacity: 0;
             transition: opacity 0.4s ease;
             content: '';
@@ -28,8 +31,11 @@
     }
 
     &_expanded &__body {
-        z-index: 0;
-        opacity: 1;
+        @media screen and (max-width: $md2 + px) {
+            z-index: 0;
+            visibility: visible;
+            opacity: 1;
+        }
     }
 
     &__wrapper {

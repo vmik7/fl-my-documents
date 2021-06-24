@@ -1,0 +1,123 @@
+.hero {
+    &__slider {
+    }
+}
+.hero-slider {
+    position: relative;
+    &__body {
+        position: relative;
+    }
+
+    &__slide-container {
+        max-width: 704px;
+        margin: 0 auto;
+        padding-right: 18px;
+        padding-left: 18px;
+    }
+
+    &__controls-container {
+        position: relative;
+    }
+
+    &__controls {
+        position: absolute;
+        right: 18px;
+        bottom: 113px;
+        z-index: 1;
+        display: flex;
+        margin-left: auto;
+
+        @include responsive-value('bottom', 113, 60, $md1);
+    }
+
+    &__prev,
+    &__next {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.hero-slide {
+    position: relative;
+
+    &__image {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        &::before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: #4f6581;
+            opacity: 0.15;
+            content: '';
+        }
+
+        &::after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: #000;
+            opacity: 0.35;
+            content: '';
+        }
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 488px;
+        padding-top: 113px;
+        padding-bottom: 113px;
+
+        @include responsive-value('padding-top', 113, 60, $md1);
+        @include responsive-value('padding-bottom', 113, 60, $md1);
+        @include responsive-value('min-height', 488, 380, $md1);
+    }
+
+    &__title {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        color: #fff;
+        font-weight: 500;
+        font-size: 41px;
+        @include responsive-value('font-size', 41, 32, $md1);
+
+        line-height: 45px;
+        @include responsive-value('line-height', 45, 38, $md1);
+    }
+
+    &__footer {
+        &::before {
+            display: block;
+            width: 100%;
+            height: 2px;
+            margin-bottom: 44px;
+            background: #fff;
+            opacity: 0.15;
+            content: '';
+        }
+    }
+
+    &__show-more {
+        padding: 0 37px;
+    }
+}
