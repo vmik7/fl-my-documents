@@ -1,6 +1,8 @@
 /* eslint-disable spaced-comment */
 
+//=include scripts/dinamic-adaptive.js
 //=include scripts/sliders.js
+//=include scripts/spollers.js
 
 /* eslint-enable spaced-comment */
 

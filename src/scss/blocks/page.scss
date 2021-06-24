@@ -27,8 +27,12 @@
     }
 
     &__sidebar {
-        flex: 0 0 370px;
+        flex: 0 0 278px;
         margin-right: 50px;
+
+        @media screen and (max-width: $md2 + px) {
+            display: none;
+        }
     }
 
     &__content {
