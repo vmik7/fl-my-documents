@@ -15,25 +15,28 @@ class Spoller {
             const item = this.spollerItems[j];
             item.classList.toggle('_spoller__item_expanded', false);
 
-            item.addEventListener('click', (e) => {
-                if (item.classList.contains('_spoller__item_expanded')) {
-                    item.classList.toggle('_spoller__item_expanded', false);
-                    if (this.oneExpanded) {
-                        this.openedSpoller = null;
-                    }
-                } else {
-                    item.classList.toggle('_spoller__item_expanded', true);
-                    if (this.oneExpanded) {
-                        if (this.openedSpoller !== null) {
-                            this.openedSpoller.classList.toggle(
-                                '_spoller__item_expanded',
-                                false,
-                            );
+            const controller = item.querySelector('._spoller__controller');
+            if (controller) {
+                controller.addEventListener('click', (e) => {
+                    if (item.classList.contains('_spoller__item_expanded')) {
+                        item.classList.toggle('_spoller__item_expanded', false);
+                        if (this.oneExpanded) {
+                            this.openedSpoller = null;
                         }
-                        this.openedSpoller = item;
+                    } else {
+                        item.classList.toggle('_spoller__item_expanded', true);
+                        if (this.oneExpanded) {
+                            if (this.openedSpoller !== null) {
+                                this.openedSpoller.classList.toggle(
+                                    '_spoller__item_expanded',
+                                    false,
+                                );
+                            }
+                            this.openedSpoller = item;
+                        }
                     }
-                }
-            });
+                });
+            }
         }
     }
 }
