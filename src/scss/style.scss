@@ -45,6 +45,10 @@ body {
     border: none;
     transition: all 0.3s ease;
 
+    &_active {
+        background: $cDarkBrown;
+    }
+
     &:not([disabled]) {
         &:hover {
             background: $cDarkBrown;

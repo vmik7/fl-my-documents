@@ -14,6 +14,41 @@ const menuBody = document.querySelector('.menu__body');
 const searchInput = document.querySelector('.search__input');
 const searchShowButton = document.querySelector('.menu__show-search');
 const heroSliderBody = document.querySelector('.hero-slider__body');
+const topBar = document.querySelector('.top-bar');
+const header = document.querySelector('.header');
+
+function setPageMargin() {
+    const vw = Math.max(
+        document.documentElement.clientWidth || 0,
+        window.innerWidth || 0,
+    );
+    if (vw <= 991) {
+        page.style.marginTop = `${topBar.clientHeight}px`;
+    } else {
+        page.style.marginTop = '0px';
+    }
+}
+setPageMargin();
+window.addEventListener('resize', setPageMargin);
+
+let scrollTop = window.pageYOffset;
+function controlTopBar() {
+    const vw = Math.max(
+        document.documentElement.clientWidth || 0,
+        window.innerWidth || 0,
+    );
+    if (vw <= 991) {
+        const top = window.pageYOffset;
+        if (top > scrollTop) {
+            header.style.top = `-${topBar.clientHeight}px`;
+        } else {
+            header.style.top = '0px';
+        }
+        scrollTop = top;
+    }
+}
+controlTopBar();
+window.addEventListener('scroll', controlTopBar);
 
 searchInput.addEventListener('focus', () => {
     menu.classList.toggle('menu_state_search', true);
