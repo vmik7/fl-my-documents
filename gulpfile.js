@@ -7,7 +7,7 @@ const { src, dest, watch, series, parallel } = require('gulp');
 const del = require('del');
 const browserSync = require('browser-sync').create();
 const rename = require('gulp-rename');
-const fileInclude = require('gulp-file-include');
+const include = require('gulp-include');
 
 // works with CSS
 const sass = require('gulp-sass');
@@ -47,7 +47,6 @@ function browserSyncConfig() {
 function html() {
     return (
         src(routes.src.html)
-            .pipe(fileInclude())
             // .pipe(webpHtml())
             .pipe(dest(routes.build.html))
             .pipe(browserSync.stream())
@@ -84,19 +83,17 @@ function css() {
 // * JS
 
 function js() {
-    return (
-        src(routes.src.js)
-            // .pipe(fileInclude())
-            .pipe(dest(routes.build.js))
-            .pipe(uglify())
-            .pipe(
-                rename({
-                    extname: '.min.js',
-                }),
-            )
-            .pipe(dest(routes.build.js))
-            .pipe(browserSync.stream())
-    );
+    return src(routes.src.js)
+        .pipe(include())
+        .pipe(dest(routes.build.js))
+        .pipe(uglify())
+        .pipe(
+            rename({
+                extname: '.min.js',
+            }),
+        )
+        .pipe(dest(routes.build.js))
+        .pipe(browserSync.stream());
 }
 
 // * Images
