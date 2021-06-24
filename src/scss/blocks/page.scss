@@ -2,6 +2,13 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+
+    &_locked {
+        @media screen and (max-width: $md2 + px) {
+            overflow: hidden;
+        }
+    }
+
     &__header {
     }
 
@@ -10,10 +17,22 @@
         background: $cGrey;
     }
 
+    &__hero {
+    }
+
+    &__container {
+        display: flex;
+        padding-top: 90px;
+        padding-bottom: 47px;
+    }
+
     &__sidebar {
+        flex: 0 0 370px;
+        margin-right: 50px;
     }
 
     &__content {
+        flex: 1 1 auto;
     }
 
     &__footer {
