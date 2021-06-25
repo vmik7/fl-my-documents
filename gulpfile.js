@@ -211,7 +211,7 @@ function clean() {
 }
 
 const buildFunction = series(
-    clean,
+    parallel(clean, convertFonts),
     parallel(favicon, js, css, html, images, fonts),
 );
 const watchFunction = parallel(buildFunction, watchFiles, browserSyncConfig);
