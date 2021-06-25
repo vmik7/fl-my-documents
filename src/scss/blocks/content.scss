@@ -25,6 +25,13 @@
         margin-top: 40px;
         @include responsive-value('margin-top', 40, 30, $md3);
     }
+
+    &__info-block {
+        &:not(:first-child) {
+            margin-top: 75px;
+            @include responsive-value('margin-top', 75, 30, $md3);
+        }
+    }
 }
 .news-item {
     position: relative;
@@ -131,5 +138,61 @@
         width: 42px;
         font-size: 12px;
         line-height: 42px;
+    }
+}
+
+.info {
+    position: relative;
+    padding: 120px 100px 150px 50px;
+    background: #fff;
+
+    @media screen and (max-width: $md1 + px) and (min-width: $md2 + 1 + px) {
+        padding: 80px 60px 100px 40px;
+    }
+    @include responsive-value('padding-top', 120, 60, $md3);
+    @include responsive-value('padding-right', 100, 18, $md3);
+    @include responsive-value('padding-bottom', 150, 80, $md3);
+    @include responsive-value('padding-left', 50, 20, $md3);
+
+    &__date {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 104px;
+        height: 45px;
+        color: #fff;
+        font-size: 14px;
+        background: $cLightBrown;
+
+        @include responsive-value('height', 45, 35, $md3);
+        @include responsive-value('width', 104, 80, $md3);
+        @include responsive-value('font-size', 14, 12, $md3);
+    }
+
+    &__title {
+        color: #562212;
+        font-size: 22px;
+        line-height: 31px;
+
+        @include responsive-value('font-size', 22, 16, $md3);
+        @include responsive-value('line-height', 31, 20, $md3);
+    }
+
+    &__paragraph {
+        margin-top: 35px;
+        color: $cBlueGrey;
+        font-size: 16px;
+        line-height: 23px;
+
+        @media screen and (max-width: $md1 + px) and (min-width: $md2 + 1 + px) {
+            margin-top: 16px;
+        }
+
+        @include responsive-value('font-size', 16, 14, $md3);
+        @include responsive-value('line-height', 23, 20, $md3);
+        @include responsive-value('margin-top', 23, 15, $md3);
     }
 }
