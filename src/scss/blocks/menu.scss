@@ -83,10 +83,8 @@
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            column-gap: 30px;
-            row-gap: 15px;
-
-            @include responsive-value('column-gap', 30, 0, $md1);
+            margin-top: -15px;
+            margin-right: -30px;
         }
         @media screen and (max-width: $md2 + px) {
         }
@@ -118,6 +116,11 @@
 
     &__item {
         flex-shrink: 0;
+        @media screen and (min-width: $md2 + 1 + px) {
+            margin-top: 15px;
+            margin-right: 30px;
+            @include responsive-value('margin-right', 37, 0, $md1);
+        }
         @media screen and (max-width: $md2 + px) {
             &:not(:last-child) {
                 border-bottom: 2px solid #f5f5f5;

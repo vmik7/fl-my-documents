@@ -51,12 +51,10 @@
         min-height: 50px;
         padding-top: 5px;
         padding-bottom: 5px;
-        column-gap: 20px;
 
         @media screen and (max-width: $md4 + px) {
             flex-direction: column;
             align-items: flex-start;
-            row-gap: 5px;
         }
     }
 
@@ -68,5 +66,7 @@
     }
 
     &__status {
+        flex-shrink: 0;
+        margin-left: 20px;
     }
 }

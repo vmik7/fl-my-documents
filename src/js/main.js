@@ -39,7 +39,7 @@ function controlTopBar() {
     );
     if (vw <= 991) {
         const top = window.pageYOffset;
-        if (top > scrollTop) {
+        if (top > scrollTop && top >= topBar.clientHeight) {
             header.style.top = `-${topBar.clientHeight}px`;
         } else {
             header.style.top = '0px';
