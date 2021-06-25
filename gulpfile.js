@@ -142,20 +142,21 @@ async function convertFonts() {
             const content = await fsp.readFile(
                 path.resolve(routes.prepare.fontsFrom, fileName),
             );
-            fsp.writeFile(
+            await fsp.writeFile(
                 path.resolve(
                     routes.prepare.fontsTo,
                     `${path.basename(fileName, '.ttf')}.woff`,
                 ),
                 ttf2woff(content).toString(),
             );
-            fsp.writeFile(
+            await fsp.writeFile(
                 path.resolve(
                     routes.prepare.fontsTo,
                     `${path.basename(fileName, '.ttf')}.woff2`,
                 ),
                 ttf2woff2(content),
             );
+            await fsp.rm(path.resolve(routes.prepare.fontsFrom, fileName));
         } catch (e) {
             console.error(e);
         }
