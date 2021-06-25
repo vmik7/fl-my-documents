@@ -8,6 +8,8 @@
     "node": "^14.17.0"
   },
   "scripts": {
+    "start": "gulp",
+    "build": "gulp build",
     "prettify": "prettier src --write",
     "eslint": "eslint src --fix",
     "stylelint": "stylelint src/**/*.scss --fix",
