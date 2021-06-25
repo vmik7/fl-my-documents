@@ -92,10 +92,8 @@
     }
 
     &__title {
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        @include elipsis(3);
+
         color: #fff;
         font-weight: 500;
         font-size: 41px;
