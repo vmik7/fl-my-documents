@@ -22,9 +22,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-#       - name: Checkout
-#         uses: actions/checkout@master
+      Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout
+        uses: actions/checkout@master
 
 #       # Runs a single command using the runners shell
 #       - name: Run a one-line script
@@ -54,7 +54,7 @@ jobs:
       - run: npm run build
 
       - name: Deploy
-        uses: vmik7/fl-my-documents@master
+        uses: actions/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.ACCESS_TOKEN }}
