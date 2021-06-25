@@ -10,6 +10,7 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build",
+    "deploy": "node scripts/deploy",
     "prettify": "prettier src --write",
     "eslint": "eslint src --fix",
     "stylelint": "stylelint src/**/*.scss --fix",
