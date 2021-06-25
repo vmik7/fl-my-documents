@@ -37,7 +37,7 @@ jobs:
 #           echo test, and deploy your project.
 
       - name: Build and Deploy
-        uses: actions/github-pages-deploy-action@master
+        uses: vmik7/fl-my-documents@master
         env:
           ACCESS_TOKEN: $
           BRANCH: gh-pages
