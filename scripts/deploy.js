@@ -25,8 +25,12 @@ const { buildFolderName } = require('../gulp/routes');
         await execFile('git', ['checkout', '-f', 'master']);
         await execFile('git', ['branch', '-D', 'gh-pages']);
 
-        console.log('4. Applying stashed changes ...');
-        await execFile('git', ['stash', 'apply']);
+        const { stdout: listOut } = await execFile('git', ['stash', 'list']);
+
+        if (/stash before deploy/.test(listOut)) {
+            console.log('4. Applying stashed changes ...');
+            await execFile('git', ['stash', 'pop']);
+        }
 
         console.log('Successfully deployed!');
     } catch (e) {
