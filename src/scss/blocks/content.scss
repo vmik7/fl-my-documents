@@ -126,16 +126,6 @@
         @include responsive-value('margin-top', 23, 15, $md3);
     }
 }
-.pagination-news {
-    display: flex;
-
-    &__button {
-        display: block;
-        width: 42px;
-        font-size: 12px;
-        line-height: 42px;
-    }
-}
 
 .info {
     position: relative;
@@ -190,5 +180,69 @@
         @include responsive-value('font-size', 16, 14, $md3);
         @include responsive-value('line-height', 23, 20, $md3);
         @include responsive-value('margin-top', 23, 15, $md3);
+    }
+}
+
+.breadcrumbs {
+    span:not(:first-child)::before {
+        content: ' | ';
+    }
+
+    margin-bottom: 50px;
+    color: $cBlueGrey;
+    font-size: 18px;
+    line-height: 21px;
+
+    @include responsive-value('margin-bottom', 40, 20, $md3);
+    @include responsive-value('font-size', 18, 14, $md3);
+    @include responsive-value('line-height', 21, 18, $md3);
+}
+
+.pagination-news {
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        &_type {
+            &_nav {
+            }
+            &_dots {
+            }
+        }
+
+        &_active {
+        }
+    }
+
+    &__link,
+    &__dots {
+        display: block;
+        min-width: 42px;
+        color: #fff;
+        font-size: 14px;
+        line-height: 42px;
+        text-align: center;
+        text-decoration: none;
+        border: none;
+    }
+
+    &__link {
+        font-weight: 500;
+        background: #562212;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: #381207;
+        }
+    }
+
+    &__item_active &__link {
+        background: #381207;
+    }
+
+    &__dots {
+        background: #381207;
     }
 }
