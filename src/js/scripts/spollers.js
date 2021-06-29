@@ -41,8 +41,10 @@ class Spoller {
     }
 }
 
-const spollers = document.querySelectorAll('._spoller');
-const spollersArray = [];
-for (let i = 0; i < spollers.length; i++) {
-    spollersArray.push(new Spoller(spollers[i]));
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const spollers = document.querySelectorAll('._spoller');
+    const spollersArray = [];
+    for (let i = 0; i < spollers.length; i++) {
+        spollersArray.push(new Spoller(spollers[i]));
+    }
+});
