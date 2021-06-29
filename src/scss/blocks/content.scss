@@ -1,17 +1,8 @@
 .content {
     &__breadcrumbs {
-        span:not(:first-child)::before {
-            content: ' | ';
-        }
-
         margin-bottom: 50px;
-        color: $cBlueGrey;
-        font-size: 18px;
-        line-height: 21px;
 
         @include responsive-value('margin-bottom', 40, 20, $md3);
-        @include responsive-value('font-size', 18, 14, $md3);
-        @include responsive-value('line-height', 21, 18, $md3);
     }
 
     &__news {
@@ -183,21 +174,6 @@
     }
 }
 
-.breadcrumbs {
-    span:not(:first-child)::before {
-        content: ' | ';
-    }
-
-    margin-bottom: 50px;
-    color: $cBlueGrey;
-    font-size: 18px;
-    line-height: 21px;
-
-    @include responsive-value('margin-bottom', 40, 20, $md3);
-    @include responsive-value('font-size', 18, 14, $md3);
-    @include responsive-value('line-height', 21, 18, $md3);
-}
-
 .pagination-news {
     &__list {
         display: flex;
@@ -245,4 +221,16 @@
     &__dots {
         background: #381207;
     }
+}
+
+.breadcrumbs {
+    color: $cBlueGrey;
+    font-size: 18px;
+    line-height: 21px;
+
+    &__link {
+    }
+
+    @include responsive-value('font-size', 18, 14, $md3);
+    @include responsive-value('line-height', 21, 18, $md3);
 }
