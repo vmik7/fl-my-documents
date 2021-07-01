@@ -58,15 +58,11 @@
         h5,
         h6 {
             color: #562212;
-            font-size: 22px;
-            line-height: 31px;
+            font-size: 18px;
+            line-height: 26px;
 
-            @include responsive-value('font-size', 22, 16, $md3);
-            @include responsive-value('line-height', 31, 20, $md3);
-
-            &:not(:first-child) {
-                @include item-margin-top();
-            }
+            @include responsive-value('font-size', 18, 14, $md3);
+            @include responsive-value('line-height', 26, 20, $md3);
         }
 
         p {
@@ -163,12 +159,13 @@
     }
 
     &__title {
-        color: #562212;
-        font-size: 22px;
-        line-height: 31px;
+        margin-top: 0;
+        // color: #562212;
+        // font-size: 22px;
+        // line-height: 31px;
 
-        @include responsive-value('font-size', 22, 16, $md3);
-        @include responsive-value('line-height', 31, 20, $md3);
+        // @include responsive-value('font-size', 22, 16, $md3);
+        // @include responsive-value('line-height', 31, 20, $md3);
     }
 
     ul,
