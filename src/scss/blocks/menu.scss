@@ -45,7 +45,7 @@
             right: -100%;
             bottom: 0;
             width: 100%;
-            max-width: 278px;
+            max-width: $sidebarWidth + px;
             padding-top: 50px;
             overflow-y: auto;
             background: #fff;

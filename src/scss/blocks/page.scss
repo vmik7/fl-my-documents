@@ -42,7 +42,7 @@
     }
 
     &__sidebar {
-        flex: 0 0 278px;
+        flex: 0 0 $sidebarWidth + px;
         margin-right: 50px;
 
         @media screen and (max-width: $md2 + px) {
@@ -52,6 +52,7 @@
 
     &__content {
         flex: 1 1 auto;
+        overflow-x: auto;
     }
 
     &__footer {

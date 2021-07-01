@@ -1,3 +1,13 @@
+@mixin item-margin-top() {
+    margin-top: 35px;
+
+    @media screen and (max-width: $md1 + px) and (min-width: $md2 + 1 + px) {
+        margin-top: 16px;
+    }
+
+    @include responsive-value('margin-top', 23, 15, $md3);
+}
+
 .content {
     &__breadcrumbs {
         margin-bottom: 50px;
@@ -18,118 +28,121 @@
     }
 
     &__info-block {
+        position: relative;
+        padding: 120px 100px 150px 50px;
+        color: $cBlueGrey;
+        font-size: 16px;
+        line-height: 23px;
+        background: #fff;
+
         &:not(:first-child) {
             margin-top: 75px;
             @include responsive-value('margin-top', 75, 30, $md3);
         }
-    }
-}
-.news-item {
-    position: relative;
-    display: flex;
-    min-height: 310px;
-    @media screen and (max-width: $md1 + px) and (min-width: $md2 + 1 + px) {
-        min-height: 250px;
-    }
-    @media screen and (max-width: $md3 + px) {
-        flex-direction: column;
-    }
 
-    background: #fff;
+        @media screen and (max-width: $md1 + px) and (min-width: $md2 + 1 + px) {
+            padding: 80px 60px 100px 40px;
+        }
+        @include responsive-value('padding-top', 120, 60, $md3);
+        @include responsive-value('padding-right', 100, 18, $md3);
+        @include responsive-value('padding-bottom', 150, 80, $md3);
+        @include responsive-value('padding-left', 50, 20, $md3);
 
-    &__date {
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 104px;
-        height: 45px;
-        color: #fff;
-        font-size: 14px;
-        background: $cLightBrown;
+        @include responsive-value('font-size', 16, 14, $md3);
+        @include responsive-value('line-height', 23, 20, $md3);
 
-        @include responsive-value('height', 45, 35, $md3);
-        @include responsive-value('width', 104, 80, $md3);
-        @include responsive-value('font-size', 14, 12, $md3);
-    }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #562212;
+            font-size: 22px;
+            line-height: 31px;
 
-    &__image {
+            @include responsive-value('font-size', 22, 16, $md3);
+            @include responsive-value('line-height', 31, 20, $md3);
+
+            &:not(:first-child) {
+                @include item-margin-top();
+            }
+        }
+
+        p {
+            @include item-margin-top();
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        s {
+            text-decoration: line-through;
+        }
+
         img {
             max-width: 100%;
-            object-fit: cover;
-            @media screen and (min-width: $md3 + 1 + px) {
-                height: 310px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        figure.wp-block-image {
+            @include item-margin-top();
+
+            img {
             }
-            @media screen and (max-width: $md1 + px) and (min-width: $md2 + 1 + px) {
-                height: 250px;
+        }
+
+        figure.wp-block-table {
+            @include item-margin-top();
+
+            overflow-x: auto;
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                border-spacing: 0;
+            }
+
+            tbody {
+            }
+
+            tr {
+            }
+
+            td,
+            th {
+                padding: 8px;
+                vertical-align: middle;
+                border: 1px solid $cBlueGrey;
             }
         }
 
-        @media screen and (min-width: $md3 + 1 + px) {
-            flex: 0 0 310px;
-        }
-        @media screen and (max-width: $md1 + px) and (min-width: $md2 + 1 + px) {
-            flex: 0 0 250px;
-        }
-    }
+        figure.wp-block-table.is-style-stripes {
+            table {
+            }
 
-    &__content {
-        flex: 1 1 auto;
-        padding: 45px 75px;
+            tbody {
+            }
 
-        @media screen and (max-width: $md1 + px) and (min-width: $md2 + 1 + px) {
-            padding: 25px 35px;
-        }
-        @include responsive-value('padding-top', 45, 25, $md3);
-        @include responsive-value('padding-bottom', 45, 25, $md3);
-        @include responsive-value('padding-right', 30, 15, $md3);
-        @include responsive-value('padding-left', 30, 15, $md3);
-    }
+            tr {
+            }
 
-    &__title {
-        color: #562212;
-        font-size: 22px;
-        line-height: 31px;
-
-        @include elipsis(2);
-        @include responsive-value('font-size', 22, 16, $md3);
-        @include responsive-value('line-height', 31, 20, $md3);
-    }
-
-    &__text {
-        margin-top: 35px;
-        color: $cBlueGrey;
-        font-size: 16px;
-        line-height: 23px;
-
-        @include elipsis(5);
-
-        @media screen and (max-width: $md1 + px) and (min-width: $md2 + 1 + px) {
-            @include elipsis(4);
-
-            margin-top: 16px;
+            td,
+            th {
+                border: 0;
+            }
         }
 
-        @include responsive-value('font-size', 16, 14, $md3);
-        @include responsive-value('line-height', 23, 20, $md3);
-        @include responsive-value('margin-top', 23, 15, $md3);
+        figcaption {
+            text-align: center;
+        }
     }
-}
-
-.info {
-    position: relative;
-    padding: 120px 100px 150px 50px;
-    background: #fff;
-
-    @media screen and (max-width: $md1 + px) and (min-width: $md2 + 1 + px) {
-        padding: 80px 60px 100px 40px;
-    }
-    @include responsive-value('padding-top', 120, 60, $md3);
-    @include responsive-value('padding-right', 100, 18, $md3);
-    @include responsive-value('padding-bottom', 150, 80, $md3);
-    @include responsive-value('padding-left', 50, 20, $md3);
 
     &__date {
         position: absolute;
@@ -158,79 +171,28 @@
         @include responsive-value('line-height', 31, 20, $md3);
     }
 
-    &__paragraph {
-        margin-top: 35px;
-        color: $cBlueGrey;
-        font-size: 16px;
-        line-height: 23px;
+    ul,
+    ol {
+        @include item-margin-top();
 
-        @media screen and (max-width: $md1 + px) and (min-width: $md2 + 1 + px) {
-            margin-top: 16px;
-        }
-
-        @include responsive-value('font-size', 16, 14, $md3);
-        @include responsive-value('line-height', 23, 20, $md3);
-        @include responsive-value('margin-top', 23, 15, $md3);
-    }
-}
-
-.pagination-news {
-    &__list {
-        display: flex;
-        flex-wrap: wrap;
+        padding-left: 10px;
     }
 
-    &__item {
-        &_type {
-            &_nav {
-            }
-            &_dots {
-            }
-        }
-
-        &_active {
+    ul {
+        list-style-type: disc;
+        li {
         }
     }
 
-    &__link,
-    &__dots {
-        display: block;
-        min-width: 42px;
-        color: #fff;
-        font-size: 14px;
-        line-height: 42px;
-        text-align: center;
-        text-decoration: none;
-        border: none;
+    ol {
+        list-style-type: decimal;
     }
 
-    &__link {
-        font-weight: 500;
-        background: #562212;
-        transition: all 0.3s ease;
-
-        &:hover {
-            background: #381207;
-        }
+    ul ul,
+    ol ul,
+    ul ol,
+    ol ol {
+        margin-top: 0;
+        padding-left: 20px;
     }
-
-    &__item_active &__link {
-        background: #381207;
-    }
-
-    &__dots {
-        background: #381207;
-    }
-}
-
-.breadcrumbs {
-    color: $cBlueGrey;
-    font-size: 18px;
-    line-height: 21px;
-
-    &__link {
-    }
-
-    @include responsive-value('font-size', 18, 14, $md3);
-    @include responsive-value('line-height', 21, 18, $md3);
 }

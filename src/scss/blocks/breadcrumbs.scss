@@ -1,0 +1,11 @@
+.breadcrumbs {
+    color: $cBlueGrey;
+    font-size: 18px;
+    line-height: 21px;
+
+    &__link {
+    }
+
+    @include responsive-value('font-size', 18, 14, $md3);
+    @include responsive-value('line-height', 21, 18, $md3);
+}

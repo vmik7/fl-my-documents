@@ -1,0 +1,93 @@
+.news-item {
+    position: relative;
+    display: flex;
+    min-height: 310px;
+    @media screen and (max-width: $md1 + px) and (min-width: $md2 + 1 + px) {
+        min-height: 250px;
+    }
+    @media screen and (max-width: $md3 + px) {
+        flex-direction: column;
+    }
+
+    background: #fff;
+
+    &__date {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 104px;
+        height: 45px;
+        color: #fff;
+        font-size: 14px;
+        background: $cLightBrown;
+
+        @include responsive-value('height', 45, 35, $md3);
+        @include responsive-value('width', 104, 80, $md3);
+        @include responsive-value('font-size', 14, 12, $md3);
+    }
+
+    &__image {
+        img {
+            max-width: 100%;
+            object-fit: cover;
+            @media screen and (min-width: $md3 + 1 + px) {
+                height: 310px;
+            }
+            @media screen and (max-width: $md1 + px) and (min-width: $md2 + 1 + px) {
+                height: 250px;
+            }
+        }
+
+        @media screen and (min-width: $md3 + 1 + px) {
+            flex: 0 0 310px;
+        }
+        @media screen and (max-width: $md1 + px) and (min-width: $md2 + 1 + px) {
+            flex: 0 0 250px;
+        }
+    }
+
+    &__content {
+        flex: 1 1 auto;
+        padding: 45px 75px;
+
+        @media screen and (max-width: $md1 + px) and (min-width: $md2 + 1 + px) {
+            padding: 25px 35px;
+        }
+        @include responsive-value('padding-top', 45, 25, $md3);
+        @include responsive-value('padding-bottom', 45, 25, $md3);
+        @include responsive-value('padding-right', 30, 15, $md3);
+        @include responsive-value('padding-left', 30, 15, $md3);
+    }
+
+    &__title {
+        color: #562212;
+        font-size: 22px;
+        line-height: 31px;
+
+        @include elipsis(2);
+        @include responsive-value('font-size', 22, 16, $md3);
+        @include responsive-value('line-height', 31, 20, $md3);
+    }
+
+    &__text {
+        margin-top: 35px;
+        color: $cBlueGrey;
+        font-size: 16px;
+        line-height: 23px;
+
+        @include elipsis(5);
+
+        @media screen and (max-width: $md1 + px) and (min-width: $md2 + 1 + px) {
+            @include elipsis(4);
+
+            margin-top: 16px;
+        }
+
+        @include responsive-value('font-size', 16, 14, $md3);
+        @include responsive-value('line-height', 23, 20, $md3);
+        @include responsive-value('margin-top', 23, 15, $md3);
+    }
+}

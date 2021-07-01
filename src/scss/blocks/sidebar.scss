@@ -45,24 +45,38 @@
     &__link {
         position: relative;
         display: block;
+        max-width: $sidebarWidth + px;
+        padding-right: 68px;
         padding-left: 37px;
+        overflow: hidden;
         color: $cBlueGrey;
         font-size: 17px;
         line-height: 68px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        &:only-child {
+            padding-right: 37px;
+        }
     }
 
     &__item._spoller__item &__link::before {
         position: absolute;
-        top: 50%;
-        right: 25px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 68px;
         color: #cddbec;
-        font-size: 10px;
-        transform: translate3d(0, -50%, 0) rotate(-90deg);
+        font-size: 16px;
+        transform: rotate(0);
         transition: transform 0.3s ease;
     }
 
     &__item._spoller__item_expanded &__link::before {
-        transform: translate3d(0, -50%, 0);
+        transform: rotate(90deg);
     }
 }
 .sponsors {
