@@ -51,7 +51,6 @@
         @include responsive-value('font-size', 16, 14, $md3);
         @include responsive-value('line-height', 23, 20, $md3);
 
-        h1,
         h2,
         h3,
         h4,
@@ -60,6 +59,7 @@
             color: #562212;
             font-size: 18px;
             line-height: 26px;
+            @include item-margin-top();
 
             @include responsive-value('font-size', 18, 14, $md3);
             @include responsive-value('line-height', 26, 20, $md3);
@@ -160,12 +160,12 @@
 
     &__title {
         margin-top: 0;
-        // color: #562212;
-        // font-size: 22px;
-        // line-height: 31px;
+        color: #562212;
+        font-size: 22px;
+        line-height: 31px;
 
-        // @include responsive-value('font-size', 22, 16, $md3);
-        // @include responsive-value('line-height', 31, 20, $md3);
+        @include responsive-value('font-size', 22, 16, $md3);
+        @include responsive-value('line-height', 31, 20, $md3);
     }
 
     ul,
