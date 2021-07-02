@@ -60,6 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
         page.classList.toggle('page_locked', false);
     });
     searchShowButton.addEventListener('click', () => {
+        // menu.classList.toggle('menu_state_search', true);
+        // page.classList.toggle('page_locked', true);
         searchInput.focus();
     });
 
